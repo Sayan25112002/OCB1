@@ -43,7 +43,7 @@ class MemberService {
                 order("id","desc")
             }
         }
-        return [list:memberList,count:memberList.size()]
+        return [list:memberList,count:Member.count()]
     }
 
     def delete(Member member){
