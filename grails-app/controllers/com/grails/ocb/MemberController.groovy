@@ -21,4 +21,53 @@ class MemberController {
     def create(){
         [member: flash.redirectParams]
     }
+
+    def save(){
+        def response = memberService.save(params)
+        if(!response.isSuccess){
+            flash.redirectParams = response.model
+            redirect(controller: "member", action: "create")
+        }else{
+            redirect(controller: "member", action: "index")
+        }
+    }
+
+    def edit(Integer id){
+        if(flash.redirectParams){
+            [member: flash.redirectParams]
+        }else{
+            def response = memberService.getById(id)
+            if(!response){
+                redirect(controller: "member", action: "index")
+            }
+            else{
+                [member:response]
+            }
+        }
+    }
+
+    def update(){
+        def response = memberService.getById(params.id)
+        if(!response){
+            redirect(controller: "member", action: "index")
+        }else{
+            reponse = memberService.getById(id)
+            if(!response.isSuccess){
+                flash.redirectParams=response.model
+                redirect(controller: "member", action: "edit")
+            }else{
+                redirect(controller: "member", action: "index")
+            }
+        }
+    }
+
+    def delete(Integer id){
+        def response = memberService.getById(id)
+        if(!response){
+            redirect(controller: "member", action: "index")
+        }else{
+            memberService.delete(response)
+            redirect(controller: "member", action:"index")
+        }
+    }
 }
