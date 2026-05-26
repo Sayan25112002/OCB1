@@ -1,0 +1,10 @@
+dataSource:
+  driverClassName: org.postgresql.Driver
+  dbCreate: create
+  username: postgres
+  password: PostgreSQL123
+
+environments:
+  development:
+    dataSource:
+      url: "jdbc:postgresql://localhost:5433/OCBDB"

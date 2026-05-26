@@ -8,7 +8,7 @@ class GlobalConfig {
     ]
 
     private static Integer itemsPerPage(){
-        return 10;
+        return 5;
     }
 
 }
