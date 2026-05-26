@@ -18,7 +18,7 @@ class MemberService {
     }
 
     def update(Member member, GrailsParameterMap params){
-        params.properties=params
+        member.properties=params
         def response = AppUtil.saveResponse(false,member)
         if(member.validate()){
             member.save(flush:true)
