@@ -8,7 +8,7 @@
 </div>
 <div class="form-group">
     <label><g:message code="email.address"/></label>
-    <g:textField name="email" class="email" value="${member?.email}" placeholder="Please enter Email Address"/>
+    <g:textField name="email" class="form-control" value="${member?.email}" placeholder="Please enter Email Address"/>
 </div>
 <g:if test="${!edit}">
     <div class="form-group">
