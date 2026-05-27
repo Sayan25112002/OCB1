@@ -40,7 +40,7 @@
             <tbody>
             <g:each in="${memberList}" var="info">
                 <tr>
-                    <td>${info?.firstName+" "+info?.lastName}</td>
+                    <td>${info?.firstName+" "+(info?.lastName?:'')}</td>
                     <td>${info?.email}</td>
                     <td>
                         <div class="btn-group">
