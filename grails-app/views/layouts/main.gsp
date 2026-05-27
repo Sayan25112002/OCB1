@@ -8,9 +8,16 @@
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
-
     <asset:stylesheet src="application.css"/>
+    <asset:javascript src="application.js"/>
 
+    <script type="text/javascript">
+        <g:if test="${flash.message && flash.message?.info}">
+            jQuery(document).ready(function(){
+                OCB.messageBox.showMessage(Boolean(${flash.message?.success}),"${flash.message?.info}");
+            });
+        </g:if>
+    </script>
     <g:layoutHead/>
 </head>
 

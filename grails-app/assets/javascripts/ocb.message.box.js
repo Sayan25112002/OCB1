@@ -24,7 +24,7 @@ OCB.messageBox=(function(){
             }
             checkTimeOut();
             var messageElement=$(document.body).find(".alert");
-            messageElement.find(".message").text("message");
+            messageElement.find(".message").text(message);
             messageElement.removeClass("alert-success").removeClass("alert-danger").addClass(messageType);
             messageElement.show();
             timeOut = setTimeout(function (){

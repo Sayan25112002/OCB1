@@ -26,8 +26,10 @@ class MemberController {
         def response = memberService.save(params)
         if(!response.isSuccess){
             flash.redirectParams = response.model
+            flash.message = AppUtil.infoMessage(g.message(code: "unable.to.save"),false)
             redirect(controller: "member", action: "create")
         }else{
+            flash.message = AppUtil.infoMessage(g.message(code: "saved"),true)
             redirect(controller: "member", action: "index")
         }
     }
@@ -54,8 +56,10 @@ class MemberController {
             response = memberService.update(response,params)
             if(!response.isSuccess){
                 flash.redirectParams=response.model
+                flash.message = AppUtil.infoMessage(g.message(code:"unable.to.update"),false)
                 redirect(controller: "member", action: "edit")
             }else{
+                flash.message = AppUtil.infoMessage(g.message(code:"updated"),true)
                 redirect(controller: "member", action: "index")
             }
         }
@@ -64,9 +68,11 @@ class MemberController {
     def delete(Integer id){
         def response = memberService.getById(id)
         if(!response){
+            flash.message = AppUtil.infoMessage(g.message(code:"unable.to.delete"),false)
             redirect(controller: "member", action: "index")
         }else{
             memberService.delete(response)
+            flash.message = AppUtil.infoMessage(g.message(code:"deleted"),true)
             redirect(controller: "member", action:"index")
         }
     }
