@@ -51,7 +51,7 @@ class MemberController {
         if(!response){
             redirect(controller: "member", action: "index")
         }else{
-            reponse = memberService.getById(id)
+            response = memberService.update(response,params)
             if(!response.isSuccess){
                 flash.redirectParams=response.model
                 redirect(controller: "member", action: "edit")
