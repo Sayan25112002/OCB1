@@ -1,6 +1,5 @@
 package com.grails.ocb
 
-import grails.gorm.transactions.Transactional
 import ocb.Member
 
 class AppInitializationService {

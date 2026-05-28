@@ -1,6 +1,5 @@
 package com.grails.ocb
 
-
 class MemberInterceptor {
 
     AuthenticationService authenticationService

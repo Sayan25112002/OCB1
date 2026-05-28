@@ -25,12 +25,13 @@
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark rounded">
-        <a class="navbar-brand" href="#">GRAILS ONLINE CONTACT BOOK</a>
+        <a class="navbar-brand" href="#">Grails Online Contacts Book</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
                 data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
-                aria-label="Toggle Navigation">
+                aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        %{--Member Action Menu--}%
         <ul class="navbar-nav ml-auto">
             <UIHelper:memberActionMenu/>
         </ul>
