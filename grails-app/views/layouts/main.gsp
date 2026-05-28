@@ -28,7 +28,12 @@
         <a class="navbar-brand" href="#">GRAILS ONLINE CONTACT BOOK</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse"
                 data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
-                aria-label="Toggle Navigation"><span class="navbar-toggler-icon"></span></button>
+                aria-label="Toggle Navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <ul class="navbar-nav ml-auto">
+            <UIHelper:memberActionMenu/>
+        </ul>
     </nav>
 </header>
 
@@ -36,9 +41,7 @@
     <div class="row">
         <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
             <ul class="list-group">
-                <li class="list-group-item"><a href="#">Dashboard</a></li>
-                <li class="list-group-item"><a href="#">Contact</a></li>
-                <li class="list-group-item"><a href="#">Contact Group</a></li>
+                <UIHelper:leftNavigation/>
             </ul>
         </nav>
 

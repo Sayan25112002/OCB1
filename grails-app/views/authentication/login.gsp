@@ -10,7 +10,8 @@
                         <g:form controller="authentication" action="doLogin" class="form-signin">
                             <g:textField name="email" class="form-control" placeholder="Email Address" required="required"/>
                             <g:passwordField name="password" class="form-control" placeholder="Password" required="required"/>
-                            <g:submitButton name="login" class="btn  btn-lg btn-primary btn-success" value="Login"/>
+                            <g:submitButton name="login" class="btn btn-lg btn-primary btn-block" value="Login"/>
+                            <g:link controller="authentication" action="registration" class="btn btn-lg btn-primary btn-block">Member Registration</g:link>
                         </g:form>
                     </div>
                 </div>
