@@ -3,6 +3,7 @@ package com.grails.ocb
 class MemberInterceptor {
 
     AuthenticationService authenticationService
+    MemberService memberService
 
     boolean before(){
         if(authenticationService.isAdministrativeMember()){

@@ -7,15 +7,13 @@
 * You're free to add application-wide styles to this file and they'll appear at the top of the
 * compiled file, but it's generally better to create a new file per style scope.
 *
-*= require bootstrap
-*= require bootstrap.min
-*= require bootstrap-grid
-*= require bootstrap-reboot
-*= require grails
-*= require main
-*= require mobile
-*= require_self
-*= require style
-*= require fontawesome-free-7.2.0-web/css/all.css
-*= require jquery-confirm.min
-*/
+ *= require bootstrap.min
+ *= require grails
+ *= require main
+ *= require mobile
+ *= require style
+ *= require fontawesome-free-7.2.0-web/css/all.css
+ *= require jquery-confirm.min
+ *= require_self
+ */
+

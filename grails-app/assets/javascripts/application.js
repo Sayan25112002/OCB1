@@ -7,9 +7,6 @@
 //
 //= require jquery-3.3.1.min
 //= require popper.min
-//= require bootstrap
-//= require bootstrap.min
-//= require bootstrap.bundle
 //= require bootstrap.bundle.min
 //= require ocb
 //= require ocb.message.box
