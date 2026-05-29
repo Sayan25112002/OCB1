@@ -17,6 +17,8 @@ class Member {
     Date dateCreated
     Date lastUpdated
 
+    static hasMany = [contact:Contact, contactGroup:ContactGroup]
+
     static constraints = {
         email(email: true, nullable: false, unique: true, blank: false)
         password(blank: false)
