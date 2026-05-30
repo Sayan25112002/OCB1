@@ -28,6 +28,7 @@ class ContactGroupController {
             flash.message = AppUtil.infoMessage(g.message(code: "saved"),true)
             redirect(controller: "contactGroup", action: "index")
         }else{
+            flash.redirectParams = response.model
             flash.message = AppUtil.infoMessage(g.message(code:"unable.to.save"),false)
             redirect(controller: "contactGroup", action: "create")
         }

@@ -3,6 +3,7 @@ package com.grails.ocb
 class UIHelperTagLib {
 
     AuthenticationService authenticationService
+    ContactGroupService contactGroupService
 
     static namespace = "UIHelper"
 
@@ -32,7 +33,8 @@ class UIHelperTagLib {
     def leftNavigation = {attrs,body->
         List navigations = [
                 [controller: "dashboard", action: "index", name:"dashboard"],
-                [controller: "contactGroup", action: "index", name:"contact.group"]
+                [controller: "contactGroup", action: "index", name:"contact.group"],
+                [controller: "contact", action: "index", name: "contact"]
         ]
         if(authenticationService.isAdministrativeMember()){
             navigations.add(controller: "member", action: "index", name:"member")
@@ -42,5 +44,10 @@ class UIHelperTagLib {
             out<<g.link(controller: menu.controller, action: menu.action) {g.message(code: menu.name, args: [''])}
             out<<"</li>"
         }
+    }
+
+    def contactGroup = {attrs,body->
+        String name = attrs.name ?: "contactGroups"
+        out<<g.select(class:"form-control",multiple: "multiple",optionValue: "name", optionKey: "id",value: "attrs.value",name: name, from: contactGroupService.contactGroupList())
     }
 }
