@@ -1,7 +1,5 @@
 package com.grails.ocb
 
-import ocb.ContactGroup
-
 class ContactGroupController {
 
     ContactGroupService contactGroupService
@@ -66,10 +64,10 @@ class ContactGroupController {
         }
     }
 
-    def delete(){
+    def delete(Integer id){
         def response = contactGroupService.get(id)
         if(!response){
-            flash.message(AppUtil.infoMessage(g.message(code:"invalid.entity"),false))
+            flash.message=AppUtil.infoMessage(g.message(code:"invalid.entity"),false)
             redirect(controller:"contactGroup",action: "index")
         }else{
             response=contactGroupService.delete(response)

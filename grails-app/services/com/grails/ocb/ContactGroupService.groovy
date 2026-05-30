@@ -9,11 +9,11 @@ class ContactGroupService {
 
     def save(def params){
         ContactGroup contactGroup=new ContactGroup(params)
-        contactGroup.member=authenticationService.member
+        contactGroup.member=authenticationService.getMember()
         def response = AppUtil.saveResponse(false,contactGroup)
         if(contactGroup.validate()){
             response.isSuccess=true
-            contactGroup.save()
+            contactGroup.save(flush:true)
         }
         return response
     }
@@ -23,7 +23,7 @@ class ContactGroupService {
         def response = AppUtil.saveResponse(false,contactGroup)
         if(contactGroup.validate()){
             response.isSuccess=true
-            contactGroup.save()
+            contactGroup.save(flush:true)
         }
         return response
     }
@@ -60,7 +60,7 @@ class ContactGroupService {
         contactGroup.save(flush:true)
     }
 
-    def delete(){
+    def delete(ContactGroup contactGroup){
         try{
             cleanContactGroupById(contactGroup.id)
             contactGroup.delete(flush: true)
