@@ -99,3 +99,7 @@ h1{
 .alert .message{
     font-weight: bold;
 }
+
+.btn-group .btn + .btn{
+    margin-left: 10px;
+}

@@ -46,8 +46,9 @@
                         <div class="btn-group">
                             <g:link controller="member" action="details" class="btn btn-primary" id="${info.id}"><i class="fa-solid fa-eye"></i> </g:link>
                             <g:link controller="member" action="edit" class="btn btn-primary" id="${info.id}"><i class="fas fa-edit"></i> </g:link>
-                            <g:link controller="member" action="delete" class="btn btn-primary delete-confirmation" id="${info.id}"><i class="fas fa-trash"></i></g:link>
-
+                            <g:if test="${currentMember?.id!=info?.id}">
+                                <g:link controller="member" action="delete" class="btn btn-primary delete-confirmation" id="${info.id}"><i class="fas fa-trash"></i></g:link>
+                            </g:if>
                         </div>
                     </td>
                 </tr>

@@ -23,6 +23,15 @@ class ContactDetail {
     }
 
     static mapping = {
+        table name: 'ContactDetail';
+        id generator: 'org.hibernate.id.enhanced.TableGenerator',
+                params: [
+                        table_name         : 'MemberContact',
+                        segment_column_name: 'table_names',
+                        value_column_name  : 'next_id',
+                        segment_value      : 'ContactDetail_id'
+                ]
+
         version(false)
     }
 }

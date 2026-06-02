@@ -18,6 +18,15 @@ class ContactGroup {
     }
 
     static mapping = {
+        table name: 'ContactGroup';
+        id generator : 'org.hibernate.id.enhanced.TableGenerator',
+                params:[
+                        table_name:'MemberContact',
+                        segment_column_name:'table_names',
+                        value_column_name:'next_id',
+                        segment_value:'ContactGroup_id'
+                ]
+
         version(false)
     }
 }

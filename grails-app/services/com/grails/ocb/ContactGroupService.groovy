@@ -36,7 +36,7 @@ class ContactGroupService {
         params.max = params.max?:GlobalConfig.itemsPerPage()
         List<ContactGroup> contactGroups = ContactGroup.createCriteria().list(params){
             if(params?.colName && params?.colValue){
-                like(params.colName,"%"+params.colValue+"%")
+                ilike(params.colName,"%"+params.colValue+"%")
             }
             if(!params.sort){
                 order("id","desc")

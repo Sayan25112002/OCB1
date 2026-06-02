@@ -19,6 +19,6 @@
     <div class="form-group">
         <label><g:message code="password"/></label>
         <g:passwordField name="password" class="form-control" value="${member?.password}" placeholder="Please Enter Password"/>
-        <UIHelper:renderErrorMessage fieldName="password" model="${member}" errorMessage="Please Enter Password"/>
+        <UIHelper:renderErrorMessage fieldName="password" model="${member}" errorMessage="Please Enter Password/Password is not Valid"/>
     </div>
 </g:if>

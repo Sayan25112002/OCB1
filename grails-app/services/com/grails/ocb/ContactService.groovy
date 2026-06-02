@@ -48,7 +48,7 @@ class ContactService {
         params.max=params.max?:GlobalConfig.itemsPerPage()
         List<Contact> contacts = Contact.createCriteria().list(params) {
             if(params?.colName && params?.colValue){
-                like(params.colName,"%"+params.colValue+"%")
+                ilike(params.colName,"%"+params.colValue+"%")
             }
             if(!params.sort){
                 order("id","desc")

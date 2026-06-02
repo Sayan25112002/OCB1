@@ -7,7 +7,7 @@
         <g:layoutTitle default="Grails Online Contact Book"/>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <asset:link rel="icon" href="favicon.ico" type="image/x-ico"/>
+    <asset:link rel="icon" href="OnlineContactBook.png" type="image/x-ico"/>
     <asset:stylesheet src="application.css"/>
     <asset:javascript src="application.js"/>
     <script type="text/javascript">

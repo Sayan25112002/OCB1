@@ -3,10 +3,11 @@ package com.grails.ocb
 class MemberController {
 
     MemberService memberService
+    AuthenticationService authenticationService
 
     def index() {
         def response = memberService.list(params)
-        [memberList:response.list , total:response.count]
+        [memberList:response.list , total:response.count, currentMember: authenticationService.getMember()]
     }
 
     def details(Integer id){
@@ -66,13 +67,19 @@ class MemberController {
     }
 
     def delete(Integer id){
+        def currentMember = authenticationService.getMember()
         def response = memberService.getById(id)
         if(!response){
             flash.message = AppUtil.infoMessage(g.message(code:"unable.to.delete"),false)
             redirect(controller: "member", action: "index")
         }else{
-            memberService.delete(response)
-            flash.message = AppUtil.infoMessage(g.message(code:"deleted"),true)
+            if(response.id==currentMember.id){
+                flash.message=AppUtil.infoMessage(g.message(code: "own.record.cannot.be.deleted"),false)
+            }
+            else {
+                memberService.delete(response)
+                flash.message = AppUtil.infoMessage(g.message(code:"deleted"),true)
+            }
             redirect(controller: "member", action:"index")
         }
     }

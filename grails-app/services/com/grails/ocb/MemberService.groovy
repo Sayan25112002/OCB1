@@ -5,6 +5,8 @@ import ocb.Member
 
 class MemberService {
 
+    AuthenticationService authenticationService
+
     def save(GrailsParameterMap params){
         Member member = new Member(params)
         def response = AppUtil.saveResponse(false,member)
@@ -37,7 +39,7 @@ class MemberService {
         params.max = params.max?:GlobalConfig.itemsPerPage()
         List<Member> memberList = Member.createCriteria().list(params){
             if(params.colName && params.colValue){
-                like(params.colName,"%"+params.colValue+"%")
+                ilike(params.colName,"%"+params.colValue+"%")
             }
             if(!params.sort()){
                 order("id","desc")
@@ -47,6 +49,10 @@ class MemberService {
     }
 
     def delete(Member member){
+        def currentMember = authenticationService.getMember()
+        if(member.id==currentMember.id){
+            return false
+        }
         try{
             member.delete(flush: true)
         }catch(Exception e){

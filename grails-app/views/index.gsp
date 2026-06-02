@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Welcome to Grails</title>
+    <title>Grails Online Contact Application Form</title>
 </head>
 <body>
 <div>

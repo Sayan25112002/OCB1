@@ -21,7 +21,7 @@ class Member {
 
     static constraints = {
         email(email: true, nullable: false, unique: true, blank: false)
-        password(blank: false)
+        password(blank: false, nullable: false, unique: true, matches: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_])[A-Za-z\d!@#$%^&*_]{8,}/)
         lastName(nullable: true)
         identityHash(nullable: true)
         identityHashLastActive(nullable: true)
@@ -33,5 +33,18 @@ class Member {
 
     def afterInsert(){
         this.password = this.password.encodeAsMD5()
+    }
+
+    static mapping = {
+        table name: 'Member';
+        id generator : 'org.hibernate.id.enhanced.TableGenerator',
+            params:[
+                    table_name:'MemberContact',
+                    segment_column_name:'table_names',
+                    value_column_name:'next_id',
+                    segment_value:'Member_id'
+            ]
+
+        version(false)
     }
 }
