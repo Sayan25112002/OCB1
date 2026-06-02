@@ -9,7 +9,7 @@ class ContactGroup {
     Date dateCreated
     Date lastUpdated
 
-    static belongsTo = [Contact]
+    static belongsTo = [Member,Contact]
     static hasMany = [contact:Contact]
 
     static constraints = {

@@ -25,7 +25,7 @@ class ContactController {
     }
 
     def save(){
-        def response = contactService.save(params)
+        def response = contactService.save(params,request)
         if(!response.isSuccess){
             flash.message = AppUtil.infoMessage(g.message(code:"unable.to.save"),false)
             redirect(controller: "contact", action:"create")
@@ -56,7 +56,7 @@ class ContactController {
             flash.message=AppUtil.infoMessage(g.message(code:"invalid.entity"),false)
             redirect(controller: "contact", action: "index")
         }else{
-            response = contactService.update(response,params)
+            response = contactService.update(response,params,request)
             if(!response.isSuccess){
                 flash.redirectParams = response.model
                 flash.message=AppUtil.infoMessage(g.message(code:"unable.to.update"),false)

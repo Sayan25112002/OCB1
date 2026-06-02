@@ -16,3 +16,7 @@
     <label><g:message code="contact.group.name"/></label>
     <UIHelper:contactGroup value="${contact?.contactGroups*.id}"/>
 </div>
+
+<div class="details-panel">
+    <g:include controller="contactDetail" action="create" id="${contact?.id}"/>
+</div>

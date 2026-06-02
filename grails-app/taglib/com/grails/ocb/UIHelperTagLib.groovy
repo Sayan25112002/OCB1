@@ -50,4 +50,19 @@ class UIHelperTagLib {
         String name = attrs.name ?: "contactGroups"
         out<<g.select(class:"form-control",multiple: "multiple",optionValue: "name", optionKey: "id",value: "attrs.value",name: name, from: contactGroupService.contactGroupList())
     }
+
+    def contactType = {attrs,body->
+        String name=attrs.name?:"type"
+        String value=attrs.value?:""
+        def select=[:]
+        select." "="Select"
+        select.Home="Home"
+        select.Personal="Personal"
+        select.Others="Others"
+        out<<g.select(from: select,name: name,optionKey: "key",optionValue: "value", value: value, class:"form-control")
+    }
+
+    def appBaseURL={attrs,body->
+        out<<AppUtil.baseURL();
+    }
 }

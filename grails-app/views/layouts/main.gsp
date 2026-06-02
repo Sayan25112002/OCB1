@@ -11,7 +11,8 @@
     <asset:stylesheet src="application.css"/>
     <asset:javascript src="application.js"/>
     <script type="text/javascript">
-        <g:if test="${flash.message && flash.message?.info}">
+        OCB.baseURL="${UIHelper.appBaseURL()}";
+        <g:if test="${flash?.message && flash?.message?.info}">
         jQuery(document).ready(function(){
             OCB.messageBox.showMessage(Boolean(${flash.message?.success}),"${flash.message?.info}");
         });

@@ -12,7 +12,7 @@
         <g:message code="contact" args="['Update']"/>
     </div>
     <div class="card-body">
-        <g:form controller="contact" action="update">
+        <g:form controller="contact" action="update" enctype="multipart/form-data">
             <g:hiddenField name="id" value="${contact.id}"/>
             <g:render template="form" model="[edit:'yes']"/>
             <div class="form-action-panel">
