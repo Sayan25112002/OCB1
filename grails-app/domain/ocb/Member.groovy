@@ -20,8 +20,22 @@ class Member {
     static hasMany = [contact:Contact, contactGroup:ContactGroup]
 
     static constraints = {
-        email(email: true, nullable: false, unique: true, blank: false)
-        password(blank: false, nullable: false, unique: true, matches: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_])[A-Za-z\d!@#$%^&*_]{8,}/)
+        email(
+                email: true,
+                nullable: false,
+                unique: true,
+                blank: false
+        )
+        password(
+                blank: false,
+                nullable: false,
+                validator: {val,obj->
+                    if(obj.id){
+                        return true
+                    }
+                    return val==~/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_])[A-Za-z\d!@#$%^&*_]{8,}/
+                }
+        )
         lastName(nullable: true)
         identityHash(nullable: true)
         identityHashLastActive(nullable: true)

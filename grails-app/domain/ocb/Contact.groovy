@@ -30,5 +30,9 @@ class Contact {
                 ]
 
         version(false)
+
+        contactDetails cascade: "all-delete-orphan"
+
     }
+
 }

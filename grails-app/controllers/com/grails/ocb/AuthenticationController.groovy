@@ -41,4 +41,5 @@ class AuthenticationController {
             redirect(controller: "authentication", action: "registration")
         }
     }
+
 }
