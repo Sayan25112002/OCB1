@@ -15,11 +15,26 @@ class ContactDetail {
     Date lastUpdated
 
     static constraints = {
-        mobile(nullable: true, blank: true)
-        phone(nullable: true, blank: true)
-        email(nullable: true, blank: true)
-        website(nullable: true, blank: true)
-        address(nullable: true, blank: true)
+        mobile(
+                nullable: true,
+                blank: true
+        )
+        phone(
+                nullable: true,
+                blank: true
+        )
+        email(
+                nullable: true,
+                blank: true
+        )
+        website(
+                nullable: true,
+                blank: true
+        )
+        address(
+                nullable: true,
+                blank: true
+        )
     }
 
     static mapping = {

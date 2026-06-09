@@ -51,7 +51,7 @@ class ContactGroupController {
     def update(){
         def response = contactGroupService.get(params.id)
         if(!response){
-            flash.message(AppUtil.infoMessage(g.message(code:"invalid.entity"),false))
+            flash.message=AppUtil.infoMessage(g.message(code:"invalid.entity"),false)
             redirect(controller:"contactGroup",action: "index")
         }else{
             response=contactGroupService.update(response,params)

@@ -36,9 +36,15 @@ class Member {
                     return val==~/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_])[A-Za-z\d!@#$%^&*_]{8,}/
                 }
         )
-        lastName(nullable: true)
-        identityHash(nullable: true)
-        identityHashLastActive(nullable: true)
+        lastName(
+                nullable: true
+        )
+        identityHash(
+                nullable: true
+        )
+        identityHashLastActive(
+                nullable: true
+        )
     }
 
     def beforeInsert(){

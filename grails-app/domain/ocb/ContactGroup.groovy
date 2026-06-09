@@ -13,7 +13,10 @@ class ContactGroup {
     static hasMany = [contact:Contact]
 
     static constraints = {
-        name(blank:false, nullable: false)
+        name(
+                blank:false,
+                nullable: false
+        )
         member(nullable: true)
     }
 
