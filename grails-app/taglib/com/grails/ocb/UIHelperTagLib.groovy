@@ -34,7 +34,8 @@ class UIHelperTagLib {
         List navigations = [
                 [controller: "dashboard", action: "index", name:"dashboard"],
                 [controller: "contactGroup", action: "index", name:"contact.group"],
-                [controller: "contact", action: "index", name: "contact"]
+                [controller: "contact", action: "index", name: "contact"],
+                [controller: "course", action: "index", name: "course"]
         ]
         if(authenticationService.isAdministrativeMember()){
             navigations.add(controller: "member", action: "index", name:"member")

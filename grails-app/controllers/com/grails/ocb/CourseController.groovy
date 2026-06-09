@@ -15,7 +15,7 @@ class CourseController {
             flash.message=AppUtil.infoMessage(g.message(code:"course.not.present"),false)
             redirect(controller:"course",action:"index")
         }else{
-            [contact:"response"]
+            [course:response]
         }
     }
 
