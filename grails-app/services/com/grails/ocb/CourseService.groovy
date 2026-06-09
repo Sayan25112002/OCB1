@@ -5,6 +5,8 @@ import ocb.Course
 
 class CourseService {
 
+    AuthenticationService authenticationService
+
     def save(GrailsParameterMap params){
         Course course=new Course(params)
         def response=AppUtil.saveResponse(false,course)
@@ -46,8 +48,23 @@ class CourseService {
         return [list:courseList,count:Course.count()]
     }
 
+    def courseList() {
+        Course.createCriteria().list {
+            order("courseName", "asc")
+        }
+    }
+
+    def cleanCourseById(Integer id){
+        Course course = Course.get(id)
+        course.members.each{
+            member->member.removeFromCourses(course)
+        }
+        course.save(flush:true)
+    }
+
     def delete(Course course){
         try{
+            cleanCourseById(course.id)
             course.delete(flush:true)
         }catch (Exception e){
             println(e.getMessage())

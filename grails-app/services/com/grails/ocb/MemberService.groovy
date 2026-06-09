@@ -1,6 +1,7 @@
 package com.grails.ocb
 
 import grails.web.servlet.mvc.GrailsParameterMap
+import ocb.Course
 import ocb.Member
 
 class MemberService {
@@ -21,6 +22,14 @@ class MemberService {
 
     def update(Member member, GrailsParameterMap params){
         member.properties=params
+        member.courses.clear()
+        params.list("courses").each {
+            courseId->
+                Course course = Course.get(courseId)
+                if(course){
+                    member.addToCourses(course)
+                }
+        }
         def response = AppUtil.saveResponse(false,member)
         if(member.validate()){
             member.save(flush:true)

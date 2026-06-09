@@ -4,6 +4,7 @@ class UIHelperTagLib {
 
     AuthenticationService authenticationService
     ContactGroupService contactGroupService
+    CourseService courseService
 
     static namespace = "UIHelper"
 
@@ -50,6 +51,11 @@ class UIHelperTagLib {
     def contactGroup = {attrs,body->
         String name = attrs.name ?: "contactGroups"
         out<<g.select(class:"form-control",multiple: "multiple",optionValue: "name", optionKey: "id",value: "attrs.value",name: name, from: contactGroupService.contactGroupList())
+    }
+
+    def course = {attrs,body->
+        String name = attrs.name?:"courses"
+        out<<g.select(class:"form-control",multiple: "multiple",optionValue: "courseName",optionKey: "id",value: "attrs.value",name:name, from: courseService.courseList())
     }
 
     def contactType = {attrs,body->

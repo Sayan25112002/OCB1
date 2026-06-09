@@ -63,7 +63,7 @@ class CourseController {
                 redirect(controller: "course", action: "create")
             }else{
                 flash.message = AppUtil.infoMessage(g.message(code:"updated"),true)
-
+                redirect(controller: "course",action: "index")
             }
         }
     }

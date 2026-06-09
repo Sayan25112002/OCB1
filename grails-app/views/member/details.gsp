@@ -26,6 +26,14 @@
                     <th class="text-right"><g:message code="email"/></th>
                     <td class="text-left">${member.email}</td>
                 </tr>
+                <tr>
+                    <th class="text-right"><g:message code="course.name"/> </th>
+                    <td class="text-left">
+                        <g:each in="${member.courses}" var="info">
+                            ${info.courseName+","}
+                        </g:each>
+                    </td>
+                </tr>
             </table>
         </g:if>
         <div class="form-action-panel">

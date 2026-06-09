@@ -3,15 +3,13 @@ package ocb
 class Course {
 
     Integer id
-    String member
     String courseName
     String courseType
 
     static belongsTo = [Member]
-    static hasMany = [member:Member]
+    static hasMany = [members:Member]
 
     static constraints = {
-        member(nullable: false,blank: false)
         courseName(nullable: false,blank: false)
         courseType(nullable: false, blank: false)
     }

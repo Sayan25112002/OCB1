@@ -35,9 +35,9 @@
                         <td>${info?.courseType}</td>
                         <td>
                             <div class="btn-group">
-                                <g:link controller="course" action="details" class="btn btn-primary" id="${info.id}"><i class="fas fa-eye"></g:link>
-                                <g:link controller="course" action="edit" class="btn btn-primary" id="${info.id}"><i class="fas fa-edit"></g:link>
-                                <g:link controller="course" action="delete" class="btn btn-danger" id="${info.id}"><i class="fas fa-trash"></g:link>
+                                <g:link controller="course" action="details" class="btn btn-primary" id="${info.id}"><i class="fas fa-eye"></i></g:link>
+                                <g:link controller="course" action="edit" class="btn btn-primary" id="${info.id}"><i class="fas fa-edit"></i></g:link>
+                                <g:link controller="course" action="delete" class="btn btn-danger delete-confirmation" id="${info.id}"><i class="fas fa-trash"></i></g:link>
                             </div>
                         </td>
                     </tr>

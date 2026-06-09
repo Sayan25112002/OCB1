@@ -22,8 +22,3 @@
         <UIHelper:renderErrorMessage fieldName="password" model="${member}" errorMessage="Please Enter Password/Password is not Valid(Password must have atleast 1 upper case letter, atleast 1 lower case letter, atleast 1 digit, atleast 1 special character and atleast total 8 characters)"/>
     </div>
 </g:if>
-
-<div class="form-group">
-    <label><g:message code="course.name"/></label>
-    <UIHelper:course value="${member?.courses*.id}"/>
-</div>
