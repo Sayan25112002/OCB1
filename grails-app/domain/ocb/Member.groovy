@@ -6,6 +6,7 @@ class Member {
 
     Integer id
     String firstName
+    String middleName
     String lastName
     String email
     String password
@@ -42,7 +43,7 @@ class Member {
                     return val==~/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*_])[A-Za-z\d!@#$%^&*_]{8,}/
                 }
         )
-        lastName(
+        middleName(
                 nullable: true
         )
         identityHash(

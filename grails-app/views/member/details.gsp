@@ -15,12 +15,8 @@
         <g:if test="${member}">
             <table class="detail">
                 <tr>
-                    <th class="text-right"><g:message code="first.name"/></th>
-                    <td class="text-left">${member.firstName}</td>
-                </tr>
-                <tr>
-                    <th class="text-right"><g:message code="last.name"/></th>
-                    <td class="text-left">${member.lastName}</td>
+                    <th class="text-right"><g:message code="name"/></th>
+                    <td class="text-left">${member.firstName+" "+(member.middleName?:"")+" "+member.lastName}</td>
                 </tr>
                 <tr>
                     <th class="text-right"><g:message code="email"/></th>
@@ -30,7 +26,7 @@
                     <th class="text-right"><g:message code="course.name"/> </th>
                     <td class="text-left">
                         <g:each in="${member.courses}" var="info">
-                            ${info.courseName+","}
+                            ${info.courseName}
                         </g:each>
                     </td>
                 </tr>

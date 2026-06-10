@@ -55,7 +55,7 @@ class UIHelperTagLib {
 
     def course = {attrs,body->
         String name = attrs.name?:"courses"
-        out<<g.select(class:"form-control",multiple: "multiple",optionValue: "courseName",optionKey: "id",value: "attrs.value",name:name, from: courseService.courseList())
+        out << g.select(class:"form-control", optionValue:"courseName", optionKey:"id", value: attrs.value, name: name, from: courseService.courseList(), noSelection: ['': '-- Select Course --'])
     }
 
     def contactType = {attrs,body->
